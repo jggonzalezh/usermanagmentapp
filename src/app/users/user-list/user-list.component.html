@@ -1,8 +1,12 @@
 <h2>List of Users</h2>
+<p *ngIf=userOperation> User has been {{ userOperation}}</p> 
+
 <ul class="heroes">
   <li *ngFor="let user of users$ | async" >
-    <a >
-      <span class="badge">{{ user.UserName }}</span>{{ user.Password }}
-    </a>
+
+      <span class="badge">{{ user.UserName + '   ' }}</span>
+      <button [routerLink]="['/user', user.ID]">View User Detail</button>
+    
   </li>
 </ul>
+<button routerLink="add">Add User</button>

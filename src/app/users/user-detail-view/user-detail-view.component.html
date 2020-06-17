@@ -1,0 +1,11 @@
+<div *ngIf="user$ | async as user">
+    <div>
+      <label>Id: </label>{{ user.UserName }}</div>
+    <div>
+      <label>Name: </label>{{ user.Password }}</div>
+      
+      
+    <p>
+      <button (click)="deleteUser(user)">Delete User</button>
+    </p>
+  </div>
