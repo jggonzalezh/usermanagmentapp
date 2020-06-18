@@ -1,0 +1,35 @@
+
+<p *ngIf=userOperation> User has been {{ userOperation}}</p> 
+
+
+<mat-card>
+  <mat-card-title> Users List</mat-card-title>
+<div class="docs-component-category-list">
+
+  <div  *ngFor="let user of users$ | async" class="docs-component-category-list-item">
+
+      <mat-card      [routerLink]="['/user', user.ID]" routerLinkActive="active">
+        <mat-card-header>
+    
+           <mat-card-title>{{user.UserName}}</mat-card-title>
+      
+            <button color="primary" mat-mini-fab>
+              <mat-icon>visibility</mat-icon>
+            </button>
+        
+        </mat-card-header>
+
+      </mat-card>
+ 
+  </div>
+
+</div>
+
+<mat-chip-list >
+        
+  <mat-chip  routerLink="add"  color="primary"  selected> <mat-icon>person_add</mat-icon> Add User</mat-chip>
+
+</mat-chip-list>
+
+</mat-card>
+    

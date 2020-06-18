@@ -1,0 +1,30 @@
+
+<mat-accordion>
+
+    <mat-expansion-panel [expanded]="open === 0"  *ngFor="let menuHeaderItem of menuHeaderItems">
+
+        <mat-expansion-panel-header   >
+
+            <mat-panel-title>
+                <button color="primary" mat-mini-fab>
+                    <mat-icon>{{menuHeaderItem.classImg}}</mat-icon>
+                </button>
+             
+            </mat-panel-title>
+
+            <mat-panel-description>
+                {{menuHeaderItem.text}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-list role="list" >
+            <mat-list-item role="listitem" *ngFor="let headerItem of menuHeaderItem.items">
+                <mat-icon color="primary">{{headerItem.classImg}}</mat-icon>
+                <a routerLink="{{headerItem.href}}" routerLinkActive="active">{{headerItem.text}}</a>
+            </mat-list-item>
+        </mat-list>
+
+
+    </mat-expansion-panel>
+    
+</mat-accordion>

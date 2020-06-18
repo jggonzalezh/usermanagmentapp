@@ -1,1 +1,37 @@
-<router-outlet></router-outlet>
+
+<div class="contenedor" [class.is-mobile]="mobileQuery.matches">
+
+    <!--      header -->
+    <app-header (toggleSideNav)="onToggle()"    ></app-header>
+    <!-- Fin  header -->
+  
+    <mat-sidenav-container class="sidenav-contenedor" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+  
+      <!--     Menu Lateral -->
+      <mat-sidenav   #snav opened="true" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="82">
+  
+        <mat-nav-list class="lateral">
+  
+         <!--  aqui va el menu lateral -->
+         <app-side-nav-bar></app-side-nav-bar>
+  
+        </mat-nav-list>
+  
+      </mat-sidenav>
+      <!-- Fin Menu Lateral -->
+  
+      <!--    Contenido -->
+      <mat-sidenav-content>
+  
+        <router-outlet></router-outlet>
+  
+        <!--  Footer -->
+        <!--  Fin Footer -->
+  
+      </mat-sidenav-content>
+      <!--Fin Contenido -->
+  
+    </mat-sidenav-container>
+  
+  </div>
+  

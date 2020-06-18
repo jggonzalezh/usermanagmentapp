@@ -1,0 +1,22 @@
+<div *ngIf="user$ | async as user">
+
+
+  <mat-card>
+  <mat-form-field  appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput     [value]="user.UserName" readonly     >
+  </mat-form-field>
+
+  <mat-form-field  appearance="legacy">
+    <mat-label>Password</mat-label>
+    <input matInput     [value]="user.Password"  readonly    >
+  </mat-form-field>
+
+  <mat-chip-list aria-label="Fish selection">
+        
+    <mat-chip color="primary" (click)="deleteUser(user)"  selected><mat-icon>delete forever</mat-icon>Delete User</mat-chip>
+  </mat-chip-list>
+
+  </mat-card>
+
+  </div>

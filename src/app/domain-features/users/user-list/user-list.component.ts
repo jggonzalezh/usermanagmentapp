@@ -4,6 +4,7 @@ import { User } from '../user';
 import { UserService} from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class UserListComponent implements OnInit, AfterViewChecked {
   UserPassword: string;
   userOperation :string;
 
-  constructor(private userService: UserService, private route: ActivatedRoute,private changeDetector : ChangeDetectorRef) { }
+  constructor(private userService: UserService, private route: ActivatedRoute,private changeDetector: ChangeDetectorRef,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -30,6 +31,13 @@ export class UserListComponent implements OnInit, AfterViewChecked {
         this.UserName = params.get('UserName');
         this.UserPassword = params.get('Password');
         this.userOperation =params.get('Operation');
+
+        if(this.userOperation){
+          this.openSnackBar( 'User has been'+this.userOperation, 'close');
+        }
+
+        
+
         return this.userService.getUsers();
       })
 
@@ -38,6 +46,13 @@ export class UserListComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(){
     this.changeDetector.detectChanges();
+  }
+
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 40000,
+    });
   }
 
 }

@@ -2,16 +2,17 @@
     border-left: 5px solid red;
   }
 
-  
+/*  
 .ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
+    border-left: 5px solid #42A948;  green
   }
   
   .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
+    border-left: 5px solid #a94442;  red 
   }
 
-  /* Global Styles */
+
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
@@ -51,7 +52,7 @@ button:disabled {
   cursor: auto;
 }
 
-/* Navigation link styles */
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -72,16 +73,13 @@ nav a.active {
   color: #039be5;
 }
 
-/* everywhere else */
+
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
 */
-  
   
