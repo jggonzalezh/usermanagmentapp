@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit, AfterViewChecked {
   UserId: number;
   UserName: string;
   UserPassword: string;
-  userOperation :string;
+  userOperation: string;
 
   constructor(private userService: UserService, private route: ActivatedRoute,private changeDetector: ChangeDetectorRef,private _snackBar: MatSnackBar) { }
 
@@ -33,10 +33,8 @@ export class UserListComponent implements OnInit, AfterViewChecked {
         this.userOperation =params.get('Operation');
 
         if(this.userOperation){
-          this.openSnackBar( 'User has been'+this.userOperation, 'close');
+          this.openSnackBar( 'User has been '+this.userOperation, 'close');
         }
-
-        
 
         return this.userService.getUsers();
       })

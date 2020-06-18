@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-user',
@@ -13,7 +14,7 @@ export class AddUserComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router,private _snackBar: MatSnackBar) { }
 
 
 
@@ -37,9 +38,13 @@ export class AddUserComponent implements OnInit {
 
   addUser(){
 
-   const user: User ={ID: 0, UserName: this.name.value, Password: this.password.value };
+   const user: User ={ID: 1, UserName: this.name.value, Password: this.password.value };
    let newUser;
-   newUser = this.userService.addUser(user).subscribe( (user) => console.log(user));
+   newUser = this.userService.addUser(user).subscribe( (u) => {
+    newUser =u;
+    },
+    e =>  this. openSnackBar("Ocurrrio un error", "closed") 
+     );
 
    if (newUser){
     this.gotoUsers(user);
@@ -53,6 +58,12 @@ export class AddUserComponent implements OnInit {
     user['Operation']='added';
 
     this.router.navigate(['/users', user]);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 40000,
+    });
   }
 
 

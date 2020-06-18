@@ -24,7 +24,7 @@ export class UserDetailViewComponent implements OnInit {
   }
 
   deleteUser(user: User){
-    this.userService.deleteUser( user.ID.toString() ).subscribe( c => { console.log(c); this.gotoUsers(user) });
+    this.userService.deleteUser( user ).subscribe( c => { console.log(c); this.gotoUsers(user) });
   }
 
 
